@@ -1,0 +1,10 @@
+(base) divy@divys-MacBook-Air dynamicLinking % gcc -shared -o libmath.so math
+_lib.c
+
+(base) divy@divys-MacBook-Air dynamicLinking % gcc test.c -L. -lmath -o test
+(base) divy@divys-MacBook-Air dynamicLinking % ./test
+
+
+Magnitude: 5.00
+Square: -7.00 + 24.00i
+(base) divy@divys-MacBook-Air dynamicLinking % 

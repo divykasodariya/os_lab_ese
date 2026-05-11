@@ -1,0 +1,21 @@
+# --- BUILDING THE LIBRARIES ---
+
+# 1. Build Static Library
+gcc -c geometry.c
+ar rcs libgeometry.a geometry.o
+
+# 2. Build Dynamic Library
+gcc -fPIC -shared -o libgeometry.so geometry.c -lm
+
+
+# --- LINKING TO MAIN.C ---
+
+# 3. Link statically (creates a standalone executable)
+gcc main.c -L. -lgeometry -lm -o main_static
+
+# 4. Link dynamically (creates an executable that needs the .so file at runtime)
+gcc main.c -L. -lgeometry -Wl,-rpath,. -lm -o main_dynamic
+
+# 5. Run both to verify they work identically
+./main_static
+./main_dynamic

@@ -1,0 +1,5 @@
+
+gcc -c filename.c
+(base) divy@divys-MacBook-Air staticLinking % ar rcs libcomplex.a complex.o
+(base) divy@divys-MacBook-Air staticLinking % gcc test.c -L. -lcomplex.o
+(base) divy@divys-MacBook-Air staticLinking % ./a.out
